@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Veilstep: Echoes of the Hollow</title>
+  <style>
+    body {
+      margin: 0;
+      background: #0c0c0c;
+      overflow: hidden;
+      touch-action: none;
+    }
+    canvas {
+      display: block;
+      background: #111;
+      image-rendering: crisp-edges;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="gameCanvas"></canvas>
+
+  <script>
+    (() => {
+      const canvas = document.getElementById("gameCanvas");
+      const ctx = canvas.getContext("2d");
+      const scale = window.devicePixelRatio;
+      
+      // Set canvas resolution
+      const width = 800;
+      const height = 450;
+      canvas.width = width * scale;
+      canvas.height = height * scale;
+      canvas.style.width = width + 'px';
+      canvas.style.height = height + 'px';
+      ctx.scale(scale, scale);
+
+      const game = {
+        width: width,
+        height: height,
+        keys: new Set(),
+        gravity: 0.6,
+        friction: 0.85,
+        airRes
